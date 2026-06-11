@@ -1,0 +1,235 @@
+/* ==========================================================================
+   RESET Y CONFIGURACIÓN GENERAL (Estilo Oscuro y Épico)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #e0e0e0;
+    font-family: 'Almendra', serif; /* Tipografía estilo manuscrito fantástico */
+    overflow-x: hidden;
+    position: relative;
+    /* Degradado de fondo que simula un cielo nocturno con fuego lejano */
+    background: radial-gradient(circle at center, #240a00 0%, #050505 100%);
+    min-height: 100vh;
+}
+
+/* Capa de textura para dar un ambiente texturizado de cuero/piedra u óbice */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.05;
+    z-index: -1;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+}
+
+/* ==========================================================================
+   HEADER Y LOGOTIPO (Estilo Banda de Power Metal)
+   ========================================================================== */
+.main-header {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 70%, rgba(212, 143, 56, 0.1) 100%);
+    border-bottom: 2px solid #b38600;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 5px 25px rgba(212, 143, 56, 0.2);
+}
+
+.band-logo {
+    font-family: 'Metal Mania', cursive;
+    font-size: 3.5rem;
+    color: #f7b731;
+    text-align: center;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(247, 183, 49, 0.6), 3px 3px 0px #4b0000;
+    transform: scaleY(1.1);
+}
+
+.sub-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.9rem;
+    color: #a5b1c2;
+    text-align: center;
+    letter-spacing: 6px;
+    margin-top: -5px;
+    text-transform: uppercase;
+}
+
+/* Navegación gótica/fantástica */
+.epic-nav {
+    margin-top: 20px;
+}
+
+.epic-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.epic-nav a {
+    color: #d1d8e0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 10px;
+}
+
+.epic-nav a::after {
+    content: '⚔';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    color: #ff3f34;
+    transition: transform 0.3s ease;
+}
+
+.epic-nav a:hover, .epic-nav a.active {
+    color: #fffa85;
+    text-shadow: 0 0 8px rgba(255, 250, 133, 0.8);
+}
+
+.epic-nav a:hover::after, .epic-nav a.active::after {
+    transform: translateX(-50%) scale(1);
+}
+
+/* ==========================================================================
+   HERO SECTION (La Portada del Álbum)
+   ========================================================================== */
+.hero-section {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+    border-bottom: 1px solid rgba(247, 183, 49, 0.2);
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.epic-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 63, 52, 0.6);
+    background: linear-gradient(to bottom, #ffffff 40%, #f7b731 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.epic-subtitle {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #d1d8e0;
+    font-style: italic;
+    margin-bottom: 40px;
+}
+
+/* Botones de Acción de Batalla */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-epic {
+    font-family: 'Cinzel Decorative', serif;
+    background: linear-gradient(135deg, #b38600 0%, #ff3f34 100%);
+    color: white;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid #fffa85;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(255, 63, 52, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-epic:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(255, 250, 133, 0.8);
+    background: linear-gradient(135deg, #ff3f34 0%, #b38600 100%);
+}
+
+.btn-secondary {
+    font-family: 'Cinzel Decorative', serif;
+    background: transparent;
+    color: #fffa85;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid #b38600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(179, 134, 0, 0.2);
+    border-color: #fffa85;
+}
+
+/* ==========================================================================
+   SECCIÓN DE CONTENIDO (Tarjetas de Pergamino/Metal)
+   ========================================================================== */
+.content-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.epic-card {
+    background: rgba(15, 15, 15, 0.85);
+    border: 1px solid #4b0000;
+    border-left: 4px solid #b38600;
+    border-right: 4px solid #b38600;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,1), 0 10px 30px rgba(0,0,0,0.7);
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    color: #f7b731;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.epic-card p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #a5b1c2;
+}
+
+/* ==========================================================================
+   FOOTER (El Cierre de la Gesta)
+   ========================================================================== */
+.epic-footer {
+    background-color: #050505;
+    border-top: 1px solid #4b0000;
+    padding: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #4b5563;
+    letter-spacing: 1px;
+}
