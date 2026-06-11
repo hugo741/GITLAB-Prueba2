@@ -1,0 +1,40 @@
+name: Deploy a GitHub Pages (CI/CD Pipeline)
+
+# El robot se activará cada vez que se haga un 'push' a la rama 'main'
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Crea una máquina virtual con Linux Ubuntu
+
+    steps:
+      # 1. Copia tu código dentro de la máquina virtual
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Configura Node.js (necesario si usas React, Vue, Vite, etc.)
+      # Si tu proyecto es HTML puro, puedes omitir el paso 2 y 3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      # 3. Instala dependencias y compila tu proyecto
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build --if-present
+
+      # 4. Toma los archivos optimizados y los publica en GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: . # Si es HTML puro usa '.' (la raíz), si usas React/Vite cambia '.' por 'dist' o 'build'
+          branch: gh-pages # Sube el resultado a una rama oculta de publicación
